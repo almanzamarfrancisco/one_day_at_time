@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 2em;
+    padding: 2em;
+}
+section {
+    border: 1px solid #000;
+    border-radius: 50px;
+    padding: 1.5em;
+    margin: 1.2em;
+    color: #fff;
+}
+main {
+    border-radius: 10px;
+}
+#main {
+    display: flex;
+    flex-direction: row;
+}
+#main > div {
+    flex: 1;
+    padding: 10px;
+}
+#today_tasks{
+    background-color: #a1c5ff;
+    border-radius: 10px;
+    padding: 1.2em;
+}
+#priorities, #notes {
+    background-color: #ffb3b3;
+    border-radius: 10px;
+    padding: 1.2em;
+}
+#date{
+    background-color: #a1c5ff;
+    color: #fff;
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding: 1.2em;
+}
+#week{
+    background-color: #ffffff;
+    color: #ffb3b3;
+    font-size: 1.5em;
+    border-radius: 10px;
+    padding: 1.2em;
+}
+#mood{
+    border-radius: 10px;
+    border: solid 3px #6099a1;
+    background-color: #fff;
+    color: #000;
+}

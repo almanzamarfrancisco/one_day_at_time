@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>One day at a time</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -35,51 +37,67 @@
                 <li>JavaScript</li>
             </ul>
         </section>
+        <h1 style="color: #000;">One day at a time</h1>
         <section id="main">
-            <h1>One day at a time</h1>
-            <div id="date">
-                <h2>Date</h2>
-                <p>2024-01-01</p>
+            <div>
+                <div id="today_tasks">
+                    <h2>Today's tasks</h2>
+                    <ul>
+                        <li>Task 1</li>
+                        <li>Task 2</li>
+                        <li>Task 3</li>
+                    </ul>
+                </div>
+                <div id="priorities">
+                    <h2>Priorities</h2>
+                    <ul>
+                        <li>Priority 1</li>
+                        <li>Priority 2</li>
+                        <li>Priority 3</li>
+                    </ul>
+                </div>
             </div>
-            <div id="today_tasks">
-                <h2>Today's tasks</h2>
-                <ul>
-                    <li>Task 1</li>
-                    <li>Task 2</li>
-                    <li>Task 3</li>
-                </ul>
-            </div>
-            <div id="priorities">
-                <h2>Priorities</h2>
-                <ul>
-                    <li>Priority 1</li>
-                    <li>Priority 2</li>
-                    <li>Priority 3</li>
-                </ul>
-            </div>
-            <div id="week">
-                <h2>This week</h2>
-                <ul>
-                    <li>M</li>
-                    <li>T</li>
-                    <li>W</li>
-                    <li>T</li>
-                    <li>F</li>
-                    <li>S</li>
-                    <li>S</li>
-                </ul>
-            </div>
-            <div id="today's mood">
-                <h2>Today's mood</h2>
-                <p>Happy</p>
-                <p>Sad</p>
-                <p>Angry</p>
-                <p>Excited</p>
-            </div>
-            <div id="Notes">
-                <span>Notes</span>
-                <Textarea>
-                </Textarea>
+            <div>
+                <div id="week">
+                    <input type="radio" id="monday" name="week_days" value="M" checked>
+                    <label for="monday">M</label>
+                    <input type="radio" id="tuesday" name="week_days" value="T">
+                    <label for="tuesday">T</label>
+                    <input type="radio" id="wednesday" name="week_days" value="W">
+                    <label for="wednesday">W</label>
+                    <input type="radio" id="thursday" name="week_days" value="T">
+                    <label for="thursday">T</label>
+                    <input type="radio" id="friday" name="week_days" value="F">
+                    <label for="friday">F</label>
+                    <input type="radio" id="saturday" name="week_days" value="S">
+                    <label for="saturday">S</label>
+                    <input type="radio" id="sunday" name="week_days" value="S">
+                    <label for="sunday">S</label>
+                </div>
+                <div id="date">
+                    <h2>Date</h2>
+                    <p id="date-string">2024-01-01</p>
+                </div>
+                <div id="mood">
+                    <h2 style="padding-left: 25%;">Today's mood</h2>
+                    <div style="margin: 1.2em;padding: 1.2em;">
+                        <input type="radio" id="exited" name="mood_selection" value="exited" checked>
+                        <label for="exited">Exited</label>
+                        <input type="radio" id="happy" name="mood_selection" value="happy">
+                        <label for="happy">Happy</label>
+                        <input type="radio" id="neutral" name="mood_selection" value="neutral">
+                        <label for="neutral">Neutral</label>
+                        <input type="radio" id="sad" name="mood_selection" value="sad">
+                        <label for="sad">Sad</label>
+                        <input type="radio" id="angry" name="mood_selection" value="angry">
+                        <label for="angry">Angry</label>
+                    </div>
+                </div>
+                <div id="notes">
+                    <p>Notes</p>
+                    <Textarea style="padding: 1.2em;margin: 1.2em;">
+                    </Textarea>
+                </div>
             </div>
         </section>
     </main>
