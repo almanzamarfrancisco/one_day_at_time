@@ -42,4 +42,17 @@ let radioFunction = () => {
 for(let radio of mood_selection){
     radio.addEventListener('change', radioFunction)
 }
-
+let days_of_week = document.getElementsByName('week_days')
+let selectDay = () => {
+    for(let day of days_of_week){
+        if (day.checked) {
+            document.querySelector(`label[for="${day.id}"]`).classList.add('selected-day')
+        } else {
+            document.querySelector(`label[for="${day.id}"]`).classList.remove('selected-day')
+        }
+    }
+}
+for(let day of days_of_week){
+    day.addEventListener('change', selectDay)
+}
+selectDay()
