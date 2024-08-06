@@ -12,7 +12,7 @@
         <h1>One day at a time</h1>
     </header>
     <main>
-        <section>
+        <!-- <section>
             <h2>What is this?</h2>
             <p>This is a simple web application that helps you to keep track of your daily tasks. You can add, edit and delete tasks. You can also mark tasks as completed.</p>
         </section>
@@ -36,11 +36,13 @@
                 <li>CSS</li>
                 <li>JavaScript</li>
             </ul>
-        </section>
-        <h1 style="color: #000;">One day at a time</h1>
+        </section> -->
         <section id="main">
-            <div>
-                <div id="today_tasks">
+            <div id="column_1">
+                <div id="title" style="color: #6099a1" class="padding-margin">
+                    <h1 style="font-size: 4em;">One day at a time!</h1>
+                </div>
+                <div id="today_tasks" class="padding-margin">
                     <h2>Today's tasks</h2>
                     <ul>
                         <li>Task 1</li>
@@ -48,7 +50,7 @@
                         <li>Task 3</li>
                     </ul>
                 </div>
-                <div id="priorities">
+                <div id="priorities" class="padding-margin">
                     <h2>Priorities</h2>
                     <ul>
                         <li>Priority 1</li>
@@ -57,8 +59,8 @@
                     </ul>
                 </div>
             </div>
-            <div>
-                <div id="week">
+            <div id="column_2">
+                <div id="week" class="padding-margin">
                     <input type="radio" id="monday" name="week_days" value="M" checked>
                     <label for="monday">M</label>
                     <input type="radio" id="tuesday" name="week_days" value="T">
@@ -74,26 +76,36 @@
                     <input type="radio" id="sunday" name="week_days" value="S">
                     <label for="sunday">S</label>
                 </div>
-                <div id="date">
+                <div id="date" class="padding-margin">
                     <h2>Date</h2>
                     <p id="date-string">2024-01-01</p>
                 </div>
-                <div id="mood">
+                <div id="mood" class="padding-margin">
                     <h2 style="padding-left: 25%;">Today's mood</h2>
-                    <div style="margin: 1.2em;padding: 1.2em;">
+                    <div class="form__answer">
                         <input type="radio" id="exited" name="mood_selection" value="exited" checked>
-                        <label for="exited">Exited</label>
+                        <label for="exited">
+                            <img src="assets/images/exited-filled.svg" class="mood-img">
+                        </label>
                         <input type="radio" id="happy" name="mood_selection" value="happy">
-                        <label for="happy">Happy</label>
+                        <label for="happy">
+                            <img src="assets/images/happy-outlined.svg" class="mood-img">
+                        </label>
                         <input type="radio" id="neutral" name="mood_selection" value="neutral">
-                        <label for="neutral">Neutral</label>
+                        <label for="neutral">
+                            <img src="assets/images/neutral-outlined.svg" class="mood-img">
+                        </label>
                         <input type="radio" id="sad" name="mood_selection" value="sad">
-                        <label for="sad">Sad</label>
+                        <label for="sad">
+                            <img src="assets/images/sad-outlined.svg" class="mood-img">
+                        </label>
                         <input type="radio" id="angry" name="mood_selection" value="angry">
-                        <label for="angry">Angry</label>
+                        <label for="angry">
+                            <img src="assets/images/sad-outlined.svg" class="mood-img">
+                        </label>
                     </div>
                 </div>
-                <div id="notes">
+                <div id="notes" class="padding-margin">
                     <p>Notes</p>
                     <Textarea style="padding: 1.2em;margin: 1.2em;">
                     </Textarea>

@@ -1,0 +1,6 @@
+<svg width="800px" height="800px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <circle fill="var(--ci-primary-color, #000000)" cx="256" cy="256" r="240"/>
+  <path fill="var(--ci-primary-color, #ffffff)" d="M256,280A104,104,0,0,0,152,384H360A104,104,0,0,0,256,280Z" class="ci-primary"/>
+  <rect width="32.001" height="96.333" x="148" y="159.834" fill="var(--ci-primary-color, #ffffff)" class="ci-primary" transform="rotate(-48.366 164.002 208.001)"/>
+  <rect width="96.333" height="32" x="291.834" y="192" fill="var(--ci-primary-color, #ffffff)" class="ci-primary" transform="rotate(-48.366 340.002 208)"/>
+</svg>
