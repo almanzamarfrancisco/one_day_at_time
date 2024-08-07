@@ -4,6 +4,7 @@ document.getElementById('date-string').innerHTML = d.getDate() + "/" + d.getMont
 /* Exercise: Make the mood radiobutton selection more user friendly
     when the a mood face is selected have to be the only one with a filled face
     approaches: 
+    0. Proof of concept
     1. Only change the src of the image
     2. Use classes (use the styles: hidde, display or opacity)
     3. CSS only
@@ -28,7 +29,7 @@ document.getElementById('date-string').innerHTML = d.getDate() + "/" + d.getMont
 // First approach - Change the src of the image )
 let mood_selection = document.getElementsByName('mood_selection')
 let selected_radio_value = null
-let radioFunction = () => {
+/* let selectRadioButton = () => {
     for(let radio of mood_selection){
         if (radio.checked) {
             selected_radio_value = radio.value
@@ -38,10 +39,31 @@ let radioFunction = () => {
             document.querySelector(`label[for="${radio.id}"] img`).src = asset_string
         }
     }
+} */
+let selectRadioButton = () => {
+    for(let radio of mood_selection){
+        if (radio.checked) {
+            let images = document.querySelectorAll(`label[for="${radio.id}"] img`)
+            console.log(images)
+            images.item(0).classList.remove('visible')
+            images.item(0).classList.add('invisible')
+            
+            images.item(1).classList.remove('invisible')
+            images.item(1).classList.add('visible')
+        } else {
+            let images = document.querySelectorAll(`label[for="${radio.id}"] img`)
+            images.item(0).classList.remove('invisible')
+            images.item(0).classList.add('visible')
+            
+            images.item(1).classList.remove('visible')
+            images.item(1).classList.add('invisible')
+        }
+    }
 }
 for(let radio of mood_selection){
-    radio.addEventListener('change', radioFunction)
+    radio.addEventListener('change', selectRadioButton)
 }
+
 let days_of_week = document.getElementsByName('week_days')
 let selectDay = () => {
     for(let day of days_of_week){
