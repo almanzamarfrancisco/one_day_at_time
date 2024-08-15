@@ -51,9 +51,6 @@ let selectRadioButton = () => {
         }
     }
 }
-// for(let radio of mood_selection){
-//     radio.addEventListener('change', selectRadioButton)
-// }
 
 let selectDay = () => {
     for(let day of days_of_week){
