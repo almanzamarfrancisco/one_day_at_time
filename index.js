@@ -79,12 +79,6 @@ let addTask = () => {
         `
         task_list_container.innerHTML += task
         new_task.value = ''
-        /* Oldest approach
-        let task = document.createElement('li')
-        task.innerHTML = new_task.value
-        task_list_container.appendChild(task)
-        task_list.push(new_task.value)
-        new_task.value = '' */
     }
     console.log('Task list: ', task_list)
 }
