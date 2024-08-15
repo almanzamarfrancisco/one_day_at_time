@@ -52,18 +52,4 @@ let selectRadioButton = () => {
     }
 }
 
-let selectDay = () => {
-    for(let day of days_of_week){
-        if (day.checked) {
-            document.querySelector(`label[for="${day.id}"]`).classList.add('selected-day')
-        } else {
-            document.querySelector(`label[for="${day.id}"]`).classList.remove('selected-day')
-        }
-    }
-}
-let days_of_week = document.getElementsByName('week_days')
-for(let day of days_of_week){
-    day.addEventListener('change', selectDay)
-}
-selectDay()
 show_moods()
