@@ -11,7 +11,18 @@ let mood_list = [
     'sad',
     'angry',
 ]
-let show_moods = () => {
+let task_list = [
+    'Task 1',
+    'Task 2',
+    'Task 3',
+]
+/* Followed format
+    <input type="radio" id="happy" name="mood_selection" value="happy">
+    <label for="exited">
+    <img id="exited-filled" src="assets/images/exited-filled.svg" class="mood-img visible">
+    </label>
+*/
+/* let show_moods = () => {
     for(let mood of mood_list){
         let mood_container = document.getElementById('mood_container')
         let input = document.createElement('input')
@@ -28,12 +39,19 @@ let show_moods = () => {
         label.appendChild(img)
         mood_container.appendChild(label)
     }
-    /* Followed format
-        <input type="radio" id="happy" name="mood_selection" value="happy">
-        <label for="exited">
-        <img id="exited-filled" src="assets/images/exited-filled.svg" class="mood-img visible">
-        </label>
-    */
+    for(let radio of mood_selection){
+        radio.addEventListener('change', selectRadioButton)
+    }
+} */
+let show_moods = () => {
+    for (let mood of mood_list) {
+        let mood_container = document.getElementById('mood_container')
+        let input = `
+            <input type="radio" name="mood_selection" id="${mood}" value="happy">
+            <label for="${mood}"><img src="assets/images/${mood}-outlined.svg" class="mood-img"></label>
+        `
+        mood_container.innerHTML += input
+    }
     for(let radio of mood_selection){
         radio.addEventListener('change', selectRadioButton)
     }
@@ -51,5 +69,24 @@ let selectRadioButton = () => {
         }
     }
 }
-
+// let renderInitialTask
+let addTask = () => {
+    let task_list_container = document.getElementById('task_list')
+    let new_task = document.getElementById('new_task')
+    if(new_task.value !== ''){
+        let task = `
+            <li>${new_task.value}</li>
+        `
+        task_list_container.innerHTML += task
+        new_task.value = ''
+        /* Oldest approach
+        let task = document.createElement('li')
+        task.innerHTML = new_task.value
+        task_list_container.appendChild(task)
+        task_list.push(new_task.value)
+        new_task.value = '' */
+    }
+    console.log('Task list: ', task_list)
+}
+document.getElementById('add_task_btn').addEventListener('click', addTask)
 show_moods()
