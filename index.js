@@ -37,49 +37,38 @@ let selectRadioButton = () => {
             selected_radio_value = radio.value
             let selector = document.querySelector(`label[for="${radio.id}"] img`)
             selector.src = `assets/images/${radio.id}-filled.svg` // TODO: optimize asset_string
-            console.log(`Selected mood ${radio.id}`)
         } else {
             let asset_string = `assets/images/${radio.id}-outlined.svg` // TODO: optimize asset_string
             document.querySelector(`label[for="${radio.id}"] img`).src = asset_string
         }
     }
 }
-let addTask = () => {
-    let task_list_container = document.getElementById('task_list')
-    let new_task = document.getElementById('new_task')
-    if(new_task.value !== ''){
-        let task = `
-            <li>${new_task.value} <input type="button" value="Delete task" data-id="${task_list.length}" onclick="deleteTask(${task_list.length})"></li>
-        `
-        task_list_container.innerHTML += task
-        task_list.push(new_task.value)
-        new_task.value = ''
-    }
-    console.log('Adding task: ', task_list.length)
-    console.log('task_list: ', task_list)
-}
-let deleteTask = (id) => {
-    console.log('Delete task with id: ', id)
-    let task_li = document.querySelector(`input[data-id="${id}"]`).parentElement
-    let task_btn = document.querySelector(`input[data-id="${id}"]`)
-    let task_id = Number(task_btn.getAttribute('data-id'))
-    console.log('Id gotten', task_id)
-    task_li.remove()
-    console.log('task_li: ', task_li.textContent)
-    for (let index in task_list)
-        if (task_li.textContent.includes(task_list[index]))
-            task_list.splice(index, 1)
-    console.log('task_list: ', task_list)
-}
-let renderInitialTask = () => {
+let renderTasks = () => {
     let task_list_container = document.getElementById('task_list')
     let index = 0
     for (let task of task_list) {
-        new_task = `<li>${task} <input type="button" value="Delete task" data-id="${index}" onclick="deleteTask(${index})"></li>`
+        new_task = `<li data-index="${index}">${task} <input type="button" value="Delete task" onclick="deleteTask(${index})"></li>`
         task_list_container.innerHTML += new_task
         index++
     }
 }
+let dropTasks = () => {
+    let task_list_container = document.getElementById('task_list')
+    task_list_container.innerHTML = ''
+}
+let addTask = () => {
+    text_input = document.getElementById('new_task')
+    if (text_input.value === '') return
+    dropTasks()
+    task_list.push(text_input.value)
+    renderTasks()
+    text_input.value = ''
+}
+let deleteTask = (id) => {
+    dropTasks()
+    task_list.splice(id, 1)
+    renderTasks()
+}
 document.getElementById('add_task_btn').addEventListener('click', addTask)
 show_moods()
-renderInitialTask()
+renderTasks()
