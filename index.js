@@ -16,34 +16,8 @@ let task_list = [
     'Task 2',
     'Task 3',
 ]
-/* Followed format
-    <input type="radio" id="happy" name="mood_selection" value="happy">
-    <label for="exited">
-    <img id="exited-filled" src="assets/images/exited-filled.svg" class="mood-img visible">
-    </label>
-*/
-/* let show_moods = () => {
-    for(let mood of mood_list){
-        let mood_container = document.getElementById('mood_container')
-        let input = document.createElement('input')
-        let label = document.createElement('label')
-        input.setAttribute('type', 'radio')
-        input.setAttribute('name', 'mood_selection')
-        input.setAttribute('id', mood)
-        input.setAttribute('value', mood)
-        label.setAttribute('for', mood)
-        let img = document.createElement('img')
-        img.src = `assets/images/${mood}-outlined.svg` // TODO: optimize asset_string
-        img.classList.add('mood-img')
-        mood_container.appendChild(input)
-        label.appendChild(img)
-        mood_container.appendChild(label)
-    }
-    for(let radio of mood_selection){
-        radio.addEventListener('change', selectRadioButton)
-    }
-} */
 let show_moods = () => {
+    let index = 0
     for (let mood of mood_list) {
         let mood_container = document.getElementById('mood_container')
         let input = `
@@ -51,6 +25,7 @@ let show_moods = () => {
             <label for="${mood}"><img src="assets/images/${mood}-outlined.svg" class="mood-img"></label>
         `
         mood_container.innerHTML += input
+        index++
     }
     for(let radio of mood_selection){
         radio.addEventListener('change', selectRadioButton)
@@ -69,18 +44,42 @@ let selectRadioButton = () => {
         }
     }
 }
-// let renderInitialTask
 let addTask = () => {
     let task_list_container = document.getElementById('task_list')
     let new_task = document.getElementById('new_task')
     if(new_task.value !== ''){
         let task = `
-            <li>${new_task.value}</li>
+            <li>${new_task.value} <input type="button" value="Delete task" data-id="${task_list.length}" onclick="deleteTask(${task_list.length})"></li>
         `
         task_list_container.innerHTML += task
+        task_list.push(new_task.value)
         new_task.value = ''
     }
-    console.log('Task list: ', task_list)
+    console.log('Adding task: ', task_list.length)
+    console.log('task_list: ', task_list)
+}
+let deleteTask = (id) => {
+    console.log('Delete task with id: ', id)
+    let task_li = document.querySelector(`input[data-id="${id}"]`).parentElement
+    let task_btn = document.querySelector(`input[data-id="${id}"]`)
+    let task_id = Number(task_btn.getAttribute('data-id'))
+    console.log('Id gotten', task_id)
+    task_li.remove()
+    console.log('task_li: ', task_li.textContent)
+    for (let index in task_list)
+        if (task_li.textContent.includes(task_list[index]))
+            task_list.splice(index, 1)
+    console.log('task_list: ', task_list)
+}
+let renderInitialTask = () => {
+    let task_list_container = document.getElementById('task_list')
+    let index = 0
+    for (let task of task_list) {
+        new_task = `<li>${task} <input type="button" value="Delete task" data-id="${index}" onclick="deleteTask(${index})"></li>`
+        task_list_container.innerHTML += new_task
+        index++
+    }
 }
 document.getElementById('add_task_btn').addEventListener('click', addTask)
 show_moods()
+renderInitialTask()
