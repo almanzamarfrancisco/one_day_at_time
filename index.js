@@ -17,15 +17,13 @@ let task_list = [
     'Task 3',
 ]
 let show_moods = () => {
-    let index = 0
+    let mood_container = document.getElementById('mood_container')
     for (let mood of mood_list) {
-        let mood_container = document.getElementById('mood_container')
         let input = `
-            <input type="radio" name="mood_selection" id="${mood}" value="happy">
+            <input type="radio" name="mood_selection" id="${mood}" value="${mood}">
             <label for="${mood}"><img src="assets/images/${mood}-outlined.svg" class="mood-img"></label>
         `
         mood_container.innerHTML += input
-        index++
     }
     for(let radio of mood_selection){
         radio.addEventListener('change', selectRadioButton)
